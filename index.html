@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>智能排课系统</title>
+</head>
+
+<body>
+    <!-- 登录界面 -->
+    <div id="login-container">
+        <div class="login-logo">
+            <h1>智能排课系统</h1>
+        </div>
+        <form id="login-form" onsubmit="return false;">
+            <input type="text" id="username" placeholder="用户名" required>
+            <input type="password" id="password" placeholder="密码" required>
+            <button type="submit" class="login-button">登录</button>
+        </form>
+    </div>
+
+    <!-- 功能导航栏和排课相关界面，初始隐藏 -->
+    <nav id="navbar" style="display: none;">
+        <ul>
+            <li><a href="#">帮助手册</a></li>
+            <li><a href="#" data-target="timetable-creation">课表创建</a></li>
+            <li><a href="#" data-target="timetable-overview">排课总览</a></li>
+            <li><a href="#">个人设置</a></li>
+        </ul>
+    </nav>
+    <div id="timetable-creation" class="content" style="display: none;">
+        <h2>课表创建</h2>
+        <form id="createTimetableForm">
+            <input type="text" id="timetable-name" placeholder="课表名称" required>
+            <select id="上课周期">
+                <option value="星期一---星期五">星期一---星期五</option>
+                <option value="星期一---星期六">星期一---星期六</option>
+            </select>
+            <div class="section-select">
+                <select id="上午节次">
+                    <option value="1">1节</option>
+                    <option value="2">2节</option>
+                    <option value="3">3节</option>
+                    <option value="4">4节</option>
+                </select>
+                <span>上午节次</span>
+            </div>
+            <div class="section-select">
+                <select id="下午节次">
+                    <option value="1">1节</option>
+                    <option value="2">2节</option>
+                    <option value="3">3节</option>
+                    <option value="4">4节</option>
+                </select>
+                <span>下午节次</span>
+            </div>
+            <input type="text" id="年级班级" placeholder="年级班级（可选）">
+            <input type="text" id="科目" placeholder="科目" required>
+            <input type="text" id="老师" placeholder="老师（名字＋科目）" required>
+            <input type="text" id="教室" placeholder="教室（可选）">
+            <button type="submit" class="create-button">创建课表</button>
+        </form>
+    </div>
+    <div id="timetable-overview" class="content" style="display: none;">
+        <h2>排课总览</h2>
+        <div id="timetable-display"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
